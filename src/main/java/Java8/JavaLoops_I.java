@@ -1,4 +1,4 @@
-package JavaLoops_I;
+package Java8;
 
 import java.io.*;
 import java.util.*;

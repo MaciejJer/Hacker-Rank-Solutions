@@ -1,4 +1,4 @@
-package SimpleArraySum;
+package Algorithms;
 import java.util.Scanner;
 
 public class SimpleArraySum {

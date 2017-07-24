@@ -1,4 +1,4 @@
-package BirthdayCandles;
+package Algorithms;
 
 import java.util.Scanner;
 

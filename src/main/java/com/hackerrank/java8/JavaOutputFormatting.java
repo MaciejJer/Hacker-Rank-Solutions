@@ -1,4 +1,4 @@
-package Java8;
+package com.hackerrank.java8;
 import java.util.Scanner;
 
 public class JavaOutputFormatting {

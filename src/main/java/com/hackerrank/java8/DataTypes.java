@@ -1,7 +1,6 @@
-package Java8;
+package com.hackerrank.java8;
 
 import java.util.*;
-import java.io.*;
 
 public class DataTypes {
     public static void main(String[] args) {

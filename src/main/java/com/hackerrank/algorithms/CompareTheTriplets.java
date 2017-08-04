@@ -1,15 +1,13 @@
-package Algorithms;
+package com.hackerrank.algorithms;
 
 import java.util.Scanner;
 
 public class CompareTheTriplets {
-    static int[] solve(int a0, int a1, int a2, int b0, int b1, int b2){
-        int c1, c2, c3;
-        for (int j = 0; j < 5; j++){
-            if (a<b0)
-
-        }
-        return null;
+    static int[] solve(int a0, int a1, int a2, int b0, int b1, int b2) {
+        int[] result = new int[2];
+        result[0] = ((a0 > b0) ? 1 : 0) + ((a1 > b1) ? 1 : 0) + ((a2 > b2) ? 1 : 0);
+        result[1] = ((a0 < b0) ? 1 : 0) + ((a1 < b1) ? 1 : 0) + ((a2 < b2) ? 1 : 0);
+        return result;
     }
 
     public static void main(String[] args) {

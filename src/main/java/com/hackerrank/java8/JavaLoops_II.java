@@ -1,6 +1,5 @@
-package Java8;
+package com.hackerrank.java8;
 import java.util.*;
-import java.io.*;
 
 class JavaLoops_II {
     public static void main(String[] argh) { //Calculating of the elements in the loop

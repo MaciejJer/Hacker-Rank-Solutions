@@ -1,6 +1,5 @@
-package Java8;
+package com.hackerrank.java8;
 
-import java.io.*;
 import java.util.*;
 
 public class JavaLoops_I {

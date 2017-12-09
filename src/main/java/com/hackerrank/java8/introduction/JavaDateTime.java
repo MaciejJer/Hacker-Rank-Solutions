@@ -1,4 +1,4 @@
-package com.hackerrank.java8;
+package com.hackerrank.java8.introduction;
 
 
 import java.util.Calendar;

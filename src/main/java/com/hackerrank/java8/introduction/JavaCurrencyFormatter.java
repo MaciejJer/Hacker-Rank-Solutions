@@ -1,6 +1,5 @@
 package com.hackerrank.java8.introduction;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
@@ -12,15 +11,15 @@ public class JavaCurrencyFormatter {
     double payment = scanner.nextDouble();
     scanner.close();
 
-    String us = "$" + String.format( "%,.2f", payment);
-    String india = "Rs." + String.format( "%,.2f", payment);
-    String china = "¥" + String.format( "%,.2f", payment);
-    NumberFormat numberFormatter = NumberFormat.getNumberInstance(new Locale("FRENCH","FRANCE"));
-    String france = numberFormatter.format(payment) + " €";
+    String france = NumberFormat.getCurrencyInstance(Locale.FRANCE).format(payment);
+    String us = NumberFormat.getCurrencyInstance(Locale.US).format(payment);
+    String china = NumberFormat.getCurrencyInstance(Locale.SIMPLIFIED_CHINESE).format(payment);
+    String india = NumberFormat.getCurrencyInstance(new Locale("en", "in")).format(payment);
 
+/*  String france = String.format( "%,.2f", payment) + " €";
+    france = france.replaceAll(","," ");
+    france = france.replaceAll("\\.",",");*/
 
-/*    DecimalFormat decimalFormat = new DecimalFormat("#%1$t##0.00");
-    String france = decimalFormat.format(payment) + " EUR";*/
     System.out.println("US: " + us);
     System.out.println("India: " + india);
     System.out.println("China: " + china);

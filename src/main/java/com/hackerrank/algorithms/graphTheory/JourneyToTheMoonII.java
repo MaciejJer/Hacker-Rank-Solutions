@@ -30,14 +30,10 @@ public class JourneyToTheMoonII {
       boolean checkUpB = astronauts.add(b);
       if (!(checkUpA && checkUpB)) {
         for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
-          if (entry.getValue().contains(a)) {
+          if (entry.getValue().contains(a) || entry.getValue().contains(b)) {
+            entry.getValue().add(a);
             entry.getValue().add(b);
             break;
-          } else {
-            if (entry.getValue().contains(b)) {
-              entry.getValue().add(a);
-              break;
-            }
           }
         }
       } else {
@@ -45,22 +41,13 @@ public class JourneyToTheMoonII {
       }
     }
 
-    for (int i = 0; i < N; i++) {
-      if (astronauts.add(i)) {
-        countries.put((countries.size() + 1),
-            Stream.of(i).collect(Collectors.toCollection(HashSet::new)));
-      }
-    }
-
     long total = N * (N - 1L) / 2L;
-    long unique = 0L;
     for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
-      total -= entry.getValue().size() * (entry.getValue().size() - 1) / 2;
+      total = total - entry.getValue().size() * (entry.getValue().size() - 1) / 2;
     }
     System.out.println(total);
 
     long combinations = 0;
     System.out.println(combinations);
   }
-
 }

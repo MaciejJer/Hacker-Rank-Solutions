@@ -14,7 +14,7 @@ public class JourneyToTheMoonII {
 
   public static void main(String[] args) throws Exception {
     BufferedReader bfr = new BufferedReader(new InputStreamReader(
-        new FileInputStream("C:\\Users\\pit\\Downloads\\input08JourneyMoon.txt")));
+        new FileInputStream("C:\\Users\\pit\\Downloads\\input01JourneyMoon.txt")));
     String[] temp = bfr.readLine().split(" ");
     int N = Integer.parseInt(temp[0]);
     int I = Integer.parseInt(temp[1]);
@@ -29,25 +29,42 @@ public class JourneyToTheMoonII {
       boolean checkUpA = astronauts.add(a);
       boolean checkUpB = astronauts.add(b);
       if (!(checkUpA && checkUpB)) {
-        for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
-          if (entry.getValue().contains(a) || entry.getValue().contains(b)) {
-            entry.getValue().add(a);
-            entry.getValue().add(b);
-            break;
+        if (!checkUpA && !checkUpB) {
+          int key1 = -1;
+          int key2 = -1;
+          for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
+            if (entry.getValue().contains(a)) {
+              key1 = entry.getKey();
+            }
+            if (entry.getValue().contains(b)) {
+              key2 = entry.getKey();
+            }
+          }
+          //merge countries
+          if (key1 != key2 && countries.size() > 1) {
+            countries.get(key1).addAll(countries.remove(key2));
+          }
+
+        } else { //add to the same country
+          for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
+            if (entry.getValue().contains(a) || entry.getValue().contains(b)) {
+              entry.getValue().add(a);
+              entry.getValue().add(b);
+              break;
+            }
           }
         }
-      } else {
+      } else { //create and add new country
         countries.put(i, Stream.of(a, b).collect(Collectors.toCollection(HashSet::new)));
       }
     }
-
-    long total = N * (N - 1L) / 2L;
-    for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
-      total = total - entry.getValue().size() * (entry.getValue().size() - 1) / 2;
-    }
-    System.out.println(total);
-
     long combinations = 0;
+    combinations = N * (N - 1L) / 2L;
+    if (countries.size() > 0) {
+      for (Map.Entry<Integer, Set<Integer>> entry : countries.entrySet()) {
+        combinations = combinations - entry.getValue().size() * (entry.getValue().size() - 1) / 2;
+      }
+    }
     System.out.println(combinations);
   }
 }

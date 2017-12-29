@@ -27,6 +27,7 @@ public class PlusMinus {
         }
       }
     }
+    System.out.printf("%.3f\n%.3f\n%.3f\n", positive/(double)n, negative/(double)n, zeros/(double)n);
     System.out.println(new DecimalFormat(FORMATTER).format((float) positive / n));
     System.out.println(new DecimalFormat(FORMATTER).format((float) negative / n));
     System.out.println(new DecimalFormat(FORMATTER).format((float) zeros / n));

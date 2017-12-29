@@ -27,5 +27,4 @@ public class TheHurdleRace {
     System.out.println(result);
     in.close();
   }
-
 }

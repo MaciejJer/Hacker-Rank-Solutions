@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DivisibleSumPairs {
 
-  static int divisibleSumPairs(int n, int k, int[] ar) {
+  private static int divisibleSumPairs(int n, int k, int[] ar) {
     int pairs = 0;
     for (int i = 0; i < n; i++) {
       for (int j = i; j < n; j++) {

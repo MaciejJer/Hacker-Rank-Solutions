@@ -1,5 +1,30 @@
 package com.hackerrank.algorithms.implementation;
 
-public class EqualizeTheArray {
+import java.util.*;
+import java.util.stream.IntStream;
 
+public class EqualizeTheArray {
+    static int equalizeArray(int[] arr) {
+        int result = 0;
+        Map<Integer, Integer> mapOfValues = new HashMap<>();
+        for (int element : arr) {
+            mapOfValues.put(element, mapOfValues.getOrDefault(element, 0) + 1);
+        }
+        int maxValueKey = Collections.max(mapOfValues.entrySet(), Comparator.comparingInt(Map.Entry::getValue)).getKey();
+        int maxOccurance = mapOfValues.get(maxValueKey);
+        result = arr.length - maxOccurance;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for (int arr_i = 0; arr_i < n; arr_i++) {
+            arr[arr_i] = in.nextInt();
+        }
+        int result = equalizeArray(arr);
+        System.out.println(result);
+        in.close();
+    }
 }

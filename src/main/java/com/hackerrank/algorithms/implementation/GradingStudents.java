@@ -5,12 +5,19 @@ import java.util.Scanner;
 public class GradingStudents {
 
     static int[] solve(int[] grades) {
-        int[] result;
-        for (int grade : grades) {
-            
+        for (int i = 0; i < grades.length; i++) {
+            int grade = grades[i];
+            if (grade >= 38) {
+                if (grade % 10 == 3 || grade % 10 == 4) {
+                    grade = grade - grade % 10 + 5;
+                }
+                if (8 == grade % 10 || grade % 10 == 9) {
+                    grade = grade - grade % 10 + 10;
+                }
+            }
+            grades[i]= grade;
         }
-
-        return result;
+        return grades;
     }
 
     public static void main(String[] args) {
